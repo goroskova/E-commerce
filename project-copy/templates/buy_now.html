@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Checkout{% endblock %} {% block content
+%}	
+	<h2 class="heading register_h2">Checkout</h2>
+
+<section class="buynow_section">
+	
+		<div class="register_btn"><a href="{{ url_for('.register') }}" class="register_button_buynowpage">Register</a></div>
+		<p class="buy_now_page_p">or</p>
+		<div class="go_back_div"> <a class="go_back guest" href="{{ url_for('.checkout_as_guest') }}">Continue as a guest</a></div>
+
+</form>
+</section>
+
+{% endblock %}

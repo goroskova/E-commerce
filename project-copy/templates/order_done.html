@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block title %}Register{% endblock %} {% block content
+%}	
+<h2 class="heading order_done">Thank you for your order!</h2>
+<section class="order_done_section">
+
+<div class="order_done_label_div">
+<p class="order_done_label">Order number: </p>
+<p class="order_done_label">Email: </p>
+<p class="order_done_label">Full name of buyer: </p>
+<p class="order_done_label">Transaction information: </p>
+<p class="order_done_label">Transaction number: </p>
+<p class="order_done_label">Billing address:</p>
+<p class="order_done_label">Order items:</p>
+<p class="order_done_label">Total price:</p>
+</div>
+<div class="order_done_data_div">
+<p class="order_done_data">{{data[0][0]}}</p>
+<p class="order_done_data">{{data[0][12]}}</p>
+<p class="order_done_data">{{data[0][13]}}&nbsp{{data[0][14]}}</p>
+<p class="order_done_data">{{data[0][17]}}  &nbsp{{data[0][18]}}&nbsp  {{data[0][19]}} &nbsp {{data[0][20]}}</p>
+<p class="order_done_data">{{data[0][15]}}</p>
+<p class="order_done_data">{{data[0][2]}} &nbsp{{data[0][4]}} &nbsp{{data[0][6]}} &nbsp{{data[0][8]}}&nbsp {{data[0][10]}}</p>
+<p class="order_done_data">{{items[0]}}, {{items[1]}}</p>
+<p class="order_done_data">&#8356;{{data[0][16]}}</p>
+
+</section>
+</div>
+{% endblock %}

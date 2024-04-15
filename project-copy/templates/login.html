@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Log In{% endblock %} {% block content
+%}	
+	<h2 class="heading login_h2">Log In</h2>
+
+<section class="login_section">
+		<form class="login_form" action="/login" method="POST">	
+
+					<div class="login_inputs labels">
+							<label class="labels_inputs" for="user">Email:</label>
+							<label class="labels_inputs" for="password">Password:</label>
+						</div>
+						<div class="login_inputs user_details">
+							<input class="labels_inputs username_input" type="text" placeholder=" Enter Email" name="email" required>
+							<input class="labels_inputs" type="password" placeholder=" Enter Password" name="password" required>
+				</div>
+						{% if error_msg %}
+									<p class="error_login">{{error_msg}}</p>
+							{% endif %}
+
+		<div class="login_btn"><button type="submit" class="submit_button">Log In</button></div>
+		<div class="go_back_div"> <a class="go_back" href="{{ url_for('.products') }}">Back</a></div>
+
+</form>
+</section>
+
+{% endblock %}

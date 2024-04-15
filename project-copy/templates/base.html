@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<meta name="description" content="home page">
+		<meta name="author" content="Olesja Goroskova">
+		<link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet" />
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  </head>
+  <body>
+   	<header>
+		<section class="wrapper">
+		<section class="bottom_nav">
+			<section class="left">
+				<figure class="search_icon"><span class="material-symbols-outlined">search</span></figure>
+				<form class="search_form" action="/search_str" method="POST">	
+
+				<figure class="search_bar">
+	{% if 'user' in session %}
+					<input type="text" placeholder="Search" name="string">
+			
+					{% endif %}
+	</figure>
+				</form>
+				
+				</section>
+		  <ul class="menu_ul">
+      <li class="menu_li"><a href="{{ url_for('.search', word='phone') }}">Phones</a></li> 
+      <li class="menu_li"> <a href="{{ url_for('.search', word='laptop') }}">Laptops</a></li>
+			<li class="menu_li"> <a href="{{ url_for('.search', word='tablet') }}">Tablets</a></li>
+ 			<li class="menu_li"> <a href="{{ url_for('.products') }}">Home</a></li>
+</ul>
+
+			<section class="right">
+				<ul>
+							<li><a class="icon_bag" href="{{ url_for('.open_cart') }}"><figure class="bag"></figure><span class="material-symbols-outlined bag">shopping_bag</span>({{session['cart_item']|length}})</a>
+					{% if 'user' in session %}
+							<li><a href="{{ url_for('.logout') }}" class="a_btn login"><button class="btn_login">Log Out</button></a></li>
+					{% else: %}
+						<li><a href="{{ url_for('.login') }}" class="a_btn login"><button class="btn_login">Log In</button></a></li>
+					{% endif %}
+							<li><a href="{{ url_for('.register') }}"  class="a_btn register"><button class=btn_register>Register</button></a></li>
+							</li></ul>
+					</section >
+					
+	  </section>
+				
+	</header>
+
+{% if 'open_cart' in session %}
+		<h2 class="heading shopping_cart">Shopping Cart</h2>	
+<section class="cart_section">
+
+
+	{% if 'cart_item' in session %}
+	<section class="cart_grid">
+		
+
+		{% for key, val in session['cart_item'].items() %}
+					{% set quantity = session['cart_item'][key]['quantity'] %}
+					{% set price = session['cart_item'][key]['price'] %}
+					{% set item_price = session['cart_item'][key]['total_price'] %}					
+			<div class="cart_item">
+		<img src="/static/images/{{ session['cart_item'][key]['image'] }}" alt="img" class="cart_item_image">
+
+			<p class="name"">{{ session['cart_item'][key]['name'] }}</p>
+			<p class="price">&#8356; {{ price }}</p>
+			<p class="quantity"> {{ quantity }}</p>
+	
+			<a href="{{ url_for('.delete_product', code=session['cart_item'][key]['code'], quantity=session['cart_item'][key]['quantity'])}}" class="material-symbols-outlined close1">close</a>
+
+			</div>
+			{% endfor %}
+		</section>
+			<p class="total_price">Total: &#8356; {{ session['all_total_price'] }} </p>
+			<a class="btnEmpty" href="{{ url_for('.empty_cart') }}">Empty Cart</a>
+			<a class="btnCheckout" href="{{ url_for('.checkout') }}">Checkout</a>
+
+		{% else: %}
+			<p class="cart_is_empty">Your Cart is Empty</p>
+		{% endif %}
+
+</section>
+
+{% endif %}
+
+			
+			{% block content %} {% endblock %}</div>
+
+
+	<footer class="footer">
+  	 <div class="footer-container">
+  	 	<div class="row">
+				 <div class="footer-column">
+  	 			<h4>Connect</h4>
+  	 			<ul>
+  	 				<li><a href="#">Facebook</a></li>
+  	 				<li><a href="#">Youtube</a></li>
+
+					</ul>
+  	 		</div>
+  	 		<div class="footer-column">
+  	 			<h4>Resources</h4>
+  	 			<ul>
+  	 				<li><a href="#">Return Policy</a></li>
+  	 				<li><a href="#">Privacy Policy</a></li>
+  	 			</ul>
+  	 		</div>
+				
+  	 		<div class="footer-column">
+  	 			<h4>About</h4>
+  	 			<ul>
+  	 				<li><a href="#">Our Story</a></li>
+  	 				<li><a href="#">FAQ</a></li>
+  	 			</ul>
+  	 		</div>
+
+  	 	</div>
+  	 </div>
+  </footer>
+
+	</body>
+
+
+</html>

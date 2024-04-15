@@ -1,0 +1,95 @@
+{% extends "base.html" %} {% block title %}Register{% endblock %} {% block content
+%}	
+	<h2 class="heading register_h2">Checkout</h2>
+
+<section class="checkout_section">
+		<form class="pay_now" action="/pay_now" method="POST">	
+					<h3 class="checkout">Current address:</h3>
+					<div class="register_inputs labels_checkout">
+
+						{% if 'checkout_as_guest' in session %}
+							<label class="label_inputs_checkout" for="firstname">First Name:</label>
+							<label class="label_inputs_checkout" for="lastname">Last Name:</label>
+							<label class="label_inputs_checkout" for="email">Email:</label>
+					{% endif %}
+
+							<label class="label_inputs_checkout" for="house_number">House number:</label>
+							<label class="label_inputs_checkout" for="street_name">Street name:</label>
+							<label class="label_inputs_checkout" for="city">City:</label>
+							<label class="label_inputs_checkout" for="country">Country:</label>
+							<label class="label_inputs_checkout" for="postcode">Postcode:</label>
+
+					</div>
+
+						<div class="register_inputs user_details_checkout">
+							
+							{% if 'checkout_as_guest' in session %}
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter First Name" name="firstname" >
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter Last Name" name="lastname" >
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter Email" name="email" >
+
+						{% endif %}
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter House number" name="house_number" >
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter Street name" name="street_name" >
+							<input class="label_inputs_checkout username_input_checkout city" type="text" placeholder=" Enter City" name="city" >
+							<input class="label_inputs_checkout username_input_checkout country" type="text" placeholder="Enter Country" name="country" >
+							<input class="label_inputs_checkout postcode" type="text" placeholder="Enter Postcode" name="postcode" >
+				</div>
+											{% if 'error_address' %}
+											<p class="error_checkout">{{error_address}}</p>
+											{% endif %}
+												{% if error_name_email %}
+												<p class="error_checkout">{{error_name_email}}</p>
+											{% endif %}
+
+				{% if 'enter_billing_address' in session %}
+
+	<div class="checkbox_container_div"><label class="checkbox_container">Is your current address the same as the billing address?<input type="checkbox" name="answer" value ="yes"></label></div>
+					<h3 class="checkout">Billing address:</h3>
+				<div class="register_inputs labels_checkout">
+							<label class="label_inputs_checkout" for="house_number">House number:</label>
+							<label class="label_inputs_checkout" for="street_name">Street name:</label>
+							<label class="label_inputs_checkout" for="city">City:</label>
+							<label class="label_inputs_checkout" for="country">Country:</label>
+							<label class="label_inputs_checkout" for="postcode">Postcode:</label>
+
+					</div>
+						<div class="register_inputs user_details_checkout">
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter House number" name="bill_house_number" >
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter Street name" name="bill_street_name" >
+							<input class="label_inputs_checkout username_input_checkout city" type="text" placeholder=" Enter City" name="bill_city" >
+							<input class="label_inputs_checkout username_input_checkout country" type="text" placeholder="Enter Country" name="bill_country" >
+							<input class="label_inputs_checkout postcode" type="text" placeholder="Enter Postcode" name="bill_postcode" >
+				</div>
+								{% if 'error_billing_address' %}
+											<p class="error_checkout">{{error_billing_address}}</p>
+								{% endif %}
+						{% endif %}
+
+					<h3 class="checkout" >Card details:</h3>
+					<div class="register_inputs labels_checkout">
+							<label class="label_inputs_checkout" for="card_number">Card number:</label>
+							<label class="label_inputs_checkout" for="name_on_card">Name on card:</label>
+							<label class="label_inputs_checkout" for="expiry_date">Expiry date:</label>
+							<label class="label_inputs_checkout" for="cvv">CVV:</label>
+
+					</div>
+						<div class="register_inputs user_details_checkout">
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter Card number" name="card_number" >
+							<input class="label_inputs_checkout username_input_checkout" type="text" placeholder=" Enter Name" name="name_on_card" >
+							<input class="label_inputs_checkout username_input_checkout expiry_date" type="text" placeholder=" Enter Expiry date" name="expiry_date" >
+							<input class="label_inputs_checkout cvv" type="text" placeholder="Enter CVV" name="cvv" size="3" >
+					</div>
+								{% if 'error_card' %}
+											<p class="error_checkout">{{error_card}}</p>
+									{% endif %}
+
+		<div class="checkout_btns">
+			<a href="{{ url_for('.products') }}" class="home_btn_div"><button type="submit" class="home_btn">Home</button></a>
+			<button type="submit" class="pay_now_btn">PAY NOW</button>
+</div>
+</form>
+
+</section>
+
+{% endblock %}

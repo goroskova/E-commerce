@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Register{% endblock %} {% block content
+%}	
+
+<h2 class="heading shopping_cart search_result_h2">Results for {{session['search']}}:</h2>
+		{% if 'nothing_to_show' in session %}
+			<p class="cart_is_empty no_results">No results :(</p>
+		{% endif %}
+		
+		<section class="products">
+	
+
+		{% for product in products %}
+			<form  class="item" method="post" action="/add">
+			
+			<img src="/static/images/{{ product[3] }}" alt="img" class="item_image">
+
+			<p class="name"">{{ product[1] }}</p>
+
+			<p class="price">&#8356; {{ product[4] }}</p>
+			<p class="quantity"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /></p>
+			<p class="in_stock">In stock: {{ product[5] }}</p>
+			<input type="hidden" name="code" value="{{ product[2] }}"/>
+		
+			<div class="item_buttons"> 
+				<input type="submit" value="Buy Now" class="item_button btnBuyAction" name="action"/>
+			<input type="submit" value="Add to Cart" class="item_button btnAddAction" name="action" />
+			</div>
+
+</form>
+			
+
+	
+			{% endfor %}
+		
+	</section>
+
+
+
+{% endblock %}
