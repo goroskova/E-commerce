@@ -1,25 +1,7 @@
-### What is this?
-This `README.md` file is auto-created for all new projects.
+**Some photos of the website**
 
-### Why am I here?
-This file opens automatically when you open a project. 
+<img width="1435" alt="Screenshot 2024-04-15 at 16 20 37" src="https://github.com/goroskova/E-commerce/assets/167102100/12128054-52a5-41af-9bbf-77b2b5490c39">
+<img width="1214" alt="Screenshot 2024-04-15 at 16 20 55" src="https://github.com/goroskova/E-commerce/assets/167102100/6e28a552-780e-44fa-83db-0c7933fc37e3">
+<img width="1271" alt="Screenshot 2024-04-15 at 16 21 09" src="https://github.com/goroskova/E-commerce/assets/167102100/90ad0830-a565-4a6c-a306-a549d5cde6ad">
 
-If you do not create Guides, this `README.md` will be what automatically opens for students. You can edit this file by clicking on the pencil icon in the upper right corner.
 
-### How do I get started with Codio?
-Use this [Onboarding Guide](https://codio.com/home/starter-packs/2ae8501b-e5f7-4b07-8e9f-adb155fc6d10) for an interactive tutorial through the main features of Codio. Click on the link, click **Use Pack** and then click **Create** to add it to your projects.
-
-### How do I close this file?
-At the top of your workspace you will see tabs for each open file. Click the x on the right hand side of the tab that says **README.md**.
-![readMeTab](https://global.codio.com/platform/readme.resources/readMeTab.png)
-
-### I expected to see or edit learning materials.
-Select **Tools->Guide->Play** to view the Guide for this project.
-![playGuide](https://global.codio.com/platform/readme.resources/playGuide.png)
-
-Click on the **Open Guides Editor** icon to edit the Guide.
-![guideEdit](https://global.codio.com/platform/readme.resources/guideEdit.png)
-
-### How do I delete this file?
-To delete this `README.md` file, right-click (ctrl-click on a Mac) on the file name in the file list.
-![fileTree](https://global.codio.com/platform/readme.resources/fileTree.png)
